@@ -1,0 +1,30 @@
+<!-- Blog Sidebar Widgets Column -->
+<div class="col-md-4">
+    <!-- Blog Search Well -->
+    <div class="well">
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+            </button>
+            </span>
+        </div>
+        <!-- /.input-group -->
+    </div>
+    <!-- Side Widget Well -->
+    <div class="well">
+        <h4>欢迎来到阿J小虫的博客</h4>
+        <p></p>
+        <!-- Place this tag where you want the button to render. -->
+        <a rel="nofollow" target="_blank"  class="btn btn-default" href="https://github.com/ichatter">
+            <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+            <span>  </span>
+            <span>Follow @ichatter on GitHub</span>
+        </a>
+    </div>
+{% if site.JB.comments.provider == 'duoshuo' %}
+{% include JB/widget-providers/duoshuo_recent_comments.html %}
+{% endif %}
+{% include JB/widget-providers/recommend.html %}
+</div>

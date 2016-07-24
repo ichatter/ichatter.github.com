@@ -1,37 +1,51 @@
-permalink: /blog/:year/:month/:title.html 
-include: ['.htaccess']
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "CNAME", "Gemfile", "Gemfile.lock"]
-markdown: kramdown
-highlights: pygments
-url: 
-cdn_url: 7u2t01.com1.z0.glb.clouddn.com
-lsi: false
-safe: true
+# Site settings
+title: 阿J小虫
+subtitle: 阿J小虫's博客
+description: 阿J小虫's博客
+production_url : http://ichatter.cn
+# cdn_url : http://yblog.b0.upaiyun.com
+encoding: utf-8
+
+author :
+  name : yzy
+  email : henry.yang86@gmail.com
+#  github : yzy
+#  twitter : yzy
+
+# Build settings
+safe: false
 timezone: Asia/Shanghai
-#auto: false 
+markdown: kramdown
+gems: [jekyll-paginate]
 
-paginate: 8
-paginate_path: "page:num"
 
-kramdown:
-  auto_ids: true,
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: false
+# permalink
+permalink: /:title.html
 
 JB :
-  IMAGE_PATH : http://coolshell.info/images
+  version : 0.3.0
 
-# presonal config
-domain: http://ichatter.github.io
-title: 阿J小虫
-description: Draw my life with code
-author: yzy
-email: henry.yang86@gmail.com
-github: ichatter
+  BASE_PATH : false
+  ASSET_PATH : false
+  IMAGE_PATH : false
 
-config:
-  js_dir:
-  img_dir:
-  css_dir:
+  categories_path : /categories.html
+  tags_path : /tags.html
+  guestbook_path : /guestbook.html
+  about_path : /about.html
+  atom_path : /atom.xml
+  rss_path : /rss.xml
+
+  comments :
+    provider : duoshuo
+    duoshuo :
+      short_name : yzy
+      top_threads_num : 5
+      top_threads_range : monthly
+
+  analytics :
+    provider : google_baidu
+#    baidu :
+#      tracking_id : 'c172b7087a2b6b62acb6057bb733a8ea'
+#    google :
+#      tracking_id : 'UA-12599330-12'

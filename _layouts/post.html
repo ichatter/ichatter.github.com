@@ -1,74 +1,27 @@
---- 
-layout: default 
---- 
-<!-- Blog Post -->
-<!-- Title -->
-<div class="row">
-  <div class="post-area post">
-
- 	<div class="post-list-body">
-        	<div class="all-posts" post-cate="All">
- 		<header>
-		<h1>
-		  {{ page.title }}
-		  <div class="post-date"><a href="https://github.com/{{ site.github }}/{{ site.github }}.github.io/edit/master/{{ page.path }}" target="_blank">纠错</a>&nbsp;&nbsp;
-			<span class="glyphicon glyphicon-time"></span>
-			{{ page.date | date_to_string }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
-		  </div>
-		</h1>
- 		</header>
-		<!-- Author -->
-		<hr>
-		 <article>
-		{{ content }}
-		  </article>
-		<hr>
-	<br/>
-	<div style="margin-top:10px;margin-bottom:10px">
-	  {%if page.previous%}
-	  <span class="next">
-	    上篇：
-	    <a href="{{page.previous.url}}">
-	      {{page.previous.title}}
-	    </a>
-	  </span>
-	  {%endif%} 
-	  {%if page.next%}
-	  <span class="prev">
-	    下篇：
-	    <a href="{{page.next.url}}">
-	      {{page.next.title}}
-	    </a>
-	  </span>
-	  {%endif%}
-	</div>
-	</div>
-	
-        {% for category in site.categories %}
-	<div post-cate="{{category | first}}">
-          <ul class="posts">
-            {% for posts in category  %}
-              {% for post in posts %}
-                {% if post.url %}
-		<li>
-                  <a href="{{ post.url }}" class="post-list-item">
-                    <h2>{{ post.title }}</h2>
-                    <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
-                  </a>
-		</li>
-                {% endif %}
-              {% endfor %}
-            {% endfor %}
-          </ul>
-	</div>
-        {% endfor %}
-	 </div>
-
-</div>
-
-
-<!-- Blog Comments -->
-<div class="media">
-  {% include comment.html %} 
-</div> 
+---
+layout: default
+type: post
+---
+{% include JB/setup %}
+<div class="col-md-8" id="page-content">
+  <h1 class="page-header">
+    {{ page.title }}
+    <small>{% if page.meta %} • {{ page.meta }}{% endif %}</small>
+  </h1>
+  <p  class="row">
+    <span class="col-md-2 col-xs-6">
+      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+      <a href="/categories.html#{{ post.categories[0] }}-ref">{{ page.categories[0] }}</a>
+    </span>
+    <span class="col-md-2 col-xs-6">
+      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+      <a href="/tags.html#{{ post.tags[0] }}-ref">{{ page.tags[0] }}</a>
+    </span>
+    <span class="col-md-3 col-xs-6"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ page.date | date: "%B %d %Y" }}</span>
+  </p>
+  <hr>
+  {{ content }}
+  <p class="source">原文链接：<a href="{{ site.production_url }}{{ page.url }}">{{ site.production_url }}{{ page.url }}</a></p>
+  <hr>
+  {% include JB/comments %}
 </div>
